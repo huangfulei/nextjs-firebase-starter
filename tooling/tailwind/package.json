@@ -16,6 +16,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "postcss": "^8.4.39",
+    "autoprefixer": "^10.4.19",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
     "daisyui": "^4.12.10"

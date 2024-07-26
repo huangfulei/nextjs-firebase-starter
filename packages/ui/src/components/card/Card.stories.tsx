@@ -1,8 +1,7 @@
+import type { ComponentMeta, ComponentStory } from "@storybook/react";
 import * as React from "react";
-import BellIcon from "@heroicons/react/24/outline/BellIcon";
-import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
-import { type ComponentMeta, type ComponentStory } from "@storybook/react";
 
+import { cn } from "~/index";
 import {
   Card,
   CardContent,
@@ -11,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from ".";
-import { cn } from "../../index";
 import { Button } from "../button";
 import { Switch } from "../switch";
 
@@ -43,10 +41,9 @@ const Template: ComponentStory<typeof Card> = (args) => (
     </CardHeader>
     <CardContent className="grid gap-4">
       <div className="flex items-center space-x-4 rounded-md border p-4">
-        <BellIcon />
         <div className="flex-1 space-y-1">
           <p className="text-sm font-medium leading-none">Push Notifications</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             Send notifications to device.
           </p>
         </div>
@@ -63,7 +60,7 @@ const Template: ComponentStory<typeof Card> = (args) => (
               <p className="text-sm font-medium leading-none">
                 {notification.title}
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 {notification.description}
               </p>
             </div>
@@ -72,9 +69,7 @@ const Template: ComponentStory<typeof Card> = (args) => (
       </div>
     </CardContent>
     <CardFooter>
-      <Button className="w-full">
-        <CheckIcon className="mr-2 h-4 w-4" /> Mark all as read
-      </Button>
+      <Button className="w-full">Mark all as read</Button>
     </CardFooter>
   </Card>
 );

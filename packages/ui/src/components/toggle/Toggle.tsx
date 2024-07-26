@@ -5,15 +5,15 @@ import * as React from "react";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { cva } from "class-variance-authority";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const toggleVariants = cva(
-  "data-[state=on]:bg-base-300 hover:bg-base-200 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-base-200 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-base-300",
   {
     variants: {
       variant: {
         default: "bg-transparent",
-        outline: "border-base-300 hover:bg-base-200 border bg-transparent",
+        outline: "border border-base-300 bg-transparent hover:bg-base-200",
       },
       size: {
         sm: "h-9 px-2.5",

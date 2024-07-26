@@ -4,7 +4,7 @@ import * as React from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -49,7 +49,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         // "fixed z-40 w-full max-w-lg scale-100 bg-base-100 opacity-100 animate-in fade-in-90 sm:rounded-md",
-        "bg-base-100 fixed z-50 max-h-[80vh] w-full max-w-full rounded-md border p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+        "fixed z-50 max-h-[80vh] w-full max-w-full rounded-md border bg-base-100 p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
         className,
       )}
       {...props}

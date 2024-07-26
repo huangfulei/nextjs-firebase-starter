@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 export type ITextProps = React.ParamHTMLAttributes<HTMLParagraphElement>;
 
@@ -8,7 +8,7 @@ const Text = React.forwardRef<HTMLParagraphElement, ITextProps>(
   ({ className, ...props }, ref) => {
     return (
       <p
-        className={cn("text-base-content break-words", className)}
+        className={cn("break-words text-base-content", className)}
         ref={ref}
         {...props}
       />

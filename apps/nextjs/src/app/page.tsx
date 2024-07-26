@@ -1,6 +1,6 @@
 import { Button } from "@pomotrack/ui/src/components/button";
 
-export const runtime = "edge";
+import { TextComponent } from "~/app/_components/TextComponent";
 
 export default function HomePage() {
   // You can await this here if you don't want to show Suspense fallback below
@@ -8,7 +8,9 @@ export default function HomePage() {
 
   return (
     <main className="container h-screen py-16">
-      <Button variant={"neutral"}>hello world</Button>
+      <Button variant={"neutral"}>
+        <TextComponent />
+      </Button>
     </main>
   );
 }

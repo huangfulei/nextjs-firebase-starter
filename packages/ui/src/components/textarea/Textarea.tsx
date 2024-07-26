@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 export type ITextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -9,7 +9,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     return (
       <textarea
         className={cn(
-          "textarea-bordered textarea focus:outline-none",
+          "textarea textarea-bordered focus:outline-none",
           className,
         )}
         ref={ref}

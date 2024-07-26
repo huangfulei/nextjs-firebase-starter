@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const MenubarMenu = MenubarPrimitive.Menu;
 
@@ -27,7 +27,7 @@ const Menubar = React.forwardRef<
   <MenubarPrimitive.Root
     ref={ref}
     className={cn(
-      "border-base-300 flex h-10 items-center space-x-1 rounded-md border p-1",
+      "flex h-10 items-center space-x-1 rounded-md border border-base-300 p-1",
       className,
     )}
     {...props}
@@ -42,7 +42,7 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      "text-md hover:bg-base-300 data-[state=open]:bg-base-300 flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 font-medium outline-none",
+      "text-md flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 font-medium outline-none hover:bg-base-300 data-[state=open]:bg-base-300",
       className,
     )}
     {...props}
@@ -59,7 +59,7 @@ const MenubarSubTrigger = React.forwardRef<
   <MenubarPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "hover:bg-base-300 data-[state=open]:bg-base-300 flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none",
+      "flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[state=open]:bg-base-300",
       inset && "pl-8",
       className,
     )}
@@ -78,7 +78,7 @@ const MenubarSubContent = React.forwardRef<
   <MenubarPrimitive.SubContent
     ref={ref}
     className={cn(
-      "menu rounded-box bg-base-100 z-50 w-32 overflow-hidden p-2 shadow-xl animate-in slide-in-from-left-1",
+      "menu z-50 w-32 overflow-hidden rounded-box bg-base-100 p-2 shadow-xl animate-in slide-in-from-left-1",
       className,
     )}
     {...props}
@@ -101,7 +101,7 @@ const MenubarContent = React.forwardRef<
         alignOffset={alignOffset}
         sideOffset={sideOffset}
         className={cn(
-          "menu rounded-box bg-base-100 w-48 p-2 shadow-xl",
+          "menu w-48 rounded-box bg-base-100 p-2 shadow-xl",
           className,
         )}
         {...props}
@@ -120,7 +120,7 @@ const MenubarItem = React.forwardRef<
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className,
     )}
@@ -136,7 +136,7 @@ const MenubarCheckboxItem = React.forwardRef<
   <MenubarPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     checked={checked}
@@ -159,7 +159,7 @@ const MenubarRadioItem = React.forwardRef<
   <MenubarPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}

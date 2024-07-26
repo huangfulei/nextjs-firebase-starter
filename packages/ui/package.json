@@ -2,7 +2,6 @@
   "name": "@pomotrack/ui",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
@@ -13,9 +12,12 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "ui-add": "pnpm dlx shadcn-ui add && prettier src --write --list-different"
+    "ui-add": "pnpm dlx shadcn-ui add && prettier src --write --list-different",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.7.0",
     "@radix-ui/react-accordion": "^1.1.0",
     "@radix-ui/react-alert-dialog": "^1.0.2",
     "@radix-ui/react-aspect-ratio": "^1.0.1",
@@ -41,27 +43,37 @@
     "@radix-ui/react-toast": "^1.1.2",
     "@radix-ui/react-toggle": "^1.0.1",
     "@radix-ui/react-tooltip": "^1.0.3",
+    "class-variance-authority": "^0.7.0",
     "date-fns": "^2.30.0",
     "embla-carousel-react": "8.0.0-rc12",
-    "react-day-picker": "^8.7.1",
-    "@hookform/resolvers": "^3.7.0",
-    "class-variance-authority": "^0.7.0",
+    "lucide-react": "catalog:",
     "next-themes": "^0.3.0",
+    "react-day-picker": "^8.7.1",
     "react-hook-form": "^7.52.1",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "catalog:",
-    "lucide-react": "catalog:"
+    "tailwindcss-animate": "catalog:"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.6.1",
     "@pomotrack/eslint-config": "workspace:*",
     "@pomotrack/prettier-config": "workspace:*",
     "@pomotrack/tailwind-config": "workspace:*",
     "@pomotrack/tsconfig": "workspace:*",
+    "@storybook/addon-essentials": "^8.2.6",
+    "@storybook/addon-interactions": "^8.2.6",
+    "@storybook/addon-links": "^8.2.6",
+    "@storybook/addon-onboarding": "^8.2.6",
+    "@storybook/blocks": "^8.2.6",
+    "@storybook/react": "^8.2.6",
+    "@storybook/react-vite": "^8.2.6",
+    "@storybook/test": "^8.2.6",
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
+    "eslint-plugin-storybook": "^0.8.0",
     "prettier": "catalog:",
     "react": "catalog:react18",
+    "storybook": "^8.2.6",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "zod": "catalog:"
@@ -70,5 +82,10 @@
     "react": "catalog:react18",
     "zod": "catalog:"
   },
-  "prettier": "@pomotrack/prettier-config"
+  "prettier": "@pomotrack/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
 }

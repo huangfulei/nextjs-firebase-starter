@@ -1,8 +1,8 @@
+import type { ComponentMeta, ComponentStory } from "@storybook/react";
 import * as React from "react";
-import { type ComponentMeta, type ComponentStory } from "@storybook/react";
 
+import { cn } from "~/index";
 import { NavigationMenu } from ".";
-import { cn } from "../../index";
 import {
   NavigationMenuContent,
   NavigationMenuIndicator,

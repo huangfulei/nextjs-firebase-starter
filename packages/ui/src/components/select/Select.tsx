@@ -4,7 +4,7 @@ import * as React from "react";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import * as SelectPrimitive from "@radix-ui/react-select";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const Select = SelectPrimitive.Root;
 
@@ -37,7 +37,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "border-base-100 bg-base-100 relative z-50 max-h-52 min-w-[8rem] overflow-auto rounded-md border shadow-md animate-in fade-in-80",
+        "relative z-50 max-h-52 min-w-[8rem] overflow-auto rounded-md border border-base-100 bg-base-100 shadow-md animate-in fade-in-80",
         position === "popper" && "translate-y-1",
         className,
       )}
@@ -77,7 +77,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}

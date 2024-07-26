@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const ContextMenu = ContextMenuPrimitive.Root;
 
@@ -31,7 +31,7 @@ const ContextMenuSubTrigger = React.forwardRef<
   <ContextMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "hover:bg-base-300 data-[state=open]:bg-base-300 flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none",
+      "flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[state=open]:bg-base-300",
       inset && "pl-8",
       className,
     )}
@@ -50,7 +50,7 @@ const ContextMenuSubContent = React.forwardRef<
   <ContextMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "menu rounded-box bg-base-100 z-50 overflow-hidden p-2 shadow-xl animate-in slide-in-from-left-1",
+      "menu z-50 overflow-hidden rounded-box bg-base-100 p-2 shadow-xl animate-in slide-in-from-left-1",
       className,
     )}
     {...props}
@@ -81,7 +81,7 @@ const ContextMenuItem = React.forwardRef<
   <ContextMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className,
     )}
@@ -97,7 +97,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
   <ContextMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     checked={checked}
@@ -121,7 +121,7 @@ const ContextMenuRadioItem = React.forwardRef<
   <ContextMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}

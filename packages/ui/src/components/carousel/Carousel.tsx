@@ -6,23 +6,18 @@ import type {
   EmblaPluginType as CarouselPlugin,
 } from "embla-carousel-react";
 import * as React from "react";
-import {
-  ArrowDownIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-} from "@heroicons/react/24/solid";
 import useEmblaCarousel from "embla-carousel-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 import { Button } from "../button";
 
-type CarouselProps = {
+interface CarouselProps {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin[];
   orientation?: "horizontal" | "vertical";
   setApi?: (api: CarouselApi) => void;
-};
+}
 
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
@@ -119,7 +114,7 @@ const Carousel = React.forwardRef<
       api.on("select", onSelect);
 
       return () => {
-        api?.off("select", onSelect);
+        api.off("select", onSelect);
       };
     }, [api, onSelect]);
 
@@ -224,9 +219,9 @@ const CarouselPrevious = React.forwardRef<
       {...props}
     >
       {orientation === "horizontal" ? (
-        <ArrowLeftIcon className="h-4 w-4" />
+        <ArrowLeft className="h-4 w-4" />
       ) : (
-        <ArrowUpIcon className="h-4 w-4" />
+        <ArrowUp className="h-4 w-4" />
       )}
       <span className="sr-only">Previous slide</span>
     </Button>
@@ -257,9 +252,9 @@ const CarouselNext = React.forwardRef<
       {...props}
     >
       {orientation === "horizontal" ? (
-        <ArrowRightIcon className="h-4 w-4" />
+        <ArrowRight className="h-4 w-4" />
       ) : (
-        <ArrowDownIcon className="h-4 w-4" />
+        <ArrowDown className="h-4 w-4" />
       )}
       <span className="sr-only">Next slide</span>
     </Button>

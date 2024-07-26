@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 
-import { cn } from "../../index";
+import { cn } from "~/index";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -31,7 +31,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "hover:bg-base-300 data-[state=open]:bg-base-300 flex cursor-pointer select-none items-center rounded-xl px-2 py-1.5 text-sm font-medium outline-none",
+      "flex cursor-pointer select-none items-center rounded-xl px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[state=open]:bg-base-300",
       inset && "pl-8",
       className,
     )}
@@ -51,7 +51,7 @@ const DropdownMenuSubContent = React.forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "menu bg-base-100 z-50 overflow-hidden rounded-xl p-2 shadow-xl animate-in slide-in-from-left-1",
+      "menu z-50 overflow-hidden rounded-xl bg-base-100 p-2 shadow-xl animate-in slide-in-from-left-1",
       className,
     )}
     {...props}
@@ -69,7 +69,7 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "menu bg-base-100 rounded-xl p-2 shadow-xl animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2",
+        "menu rounded-xl bg-base-100 p-2 shadow-xl animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2",
         className,
       )}
       {...props}
@@ -87,7 +87,7 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className,
     )}
@@ -103,7 +103,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-xl py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-xl py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     checked={checked}
@@ -127,7 +127,7 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "hover:bg-base-300 relative flex cursor-pointer select-none items-center rounded-xl py-1.5 pl-8 pr-2 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-xl py-1.5 pl-8 pr-2 text-sm font-medium outline-none hover:bg-base-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}

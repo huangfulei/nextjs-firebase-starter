@@ -1,6 +1,5 @@
+import type { ComponentMeta, ComponentStory } from "@storybook/react";
 import * as React from "react";
-import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
-import { type ComponentMeta, type ComponentStory } from "@storybook/react";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from ".";
 import { Button } from "../button";
@@ -25,7 +24,6 @@ const Template: ComponentStory<typeof Collapsible> = (args) => {
         </h4>
         <CollapsibleTrigger asChild>
           <Button variant="ghost" size="sm" className="w-9 p-0">
-            <ChevronUpDownIcon className="h-4 w-4" />
             <span className="sr-only">Toggle</span>
           </Button>
         </CollapsibleTrigger>
