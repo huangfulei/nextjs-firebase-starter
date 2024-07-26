@@ -1,6 +1,6 @@
+import type { ComponentMeta, ComponentStory } from "@storybook/react";
 import * as React from "react";
-import { UserIcon } from "@heroicons/react/24/outline";
-import { type ComponentMeta, type ComponentStory } from "@storybook/react";
+import { User } from "lucide-react";
 
 import { DropdownMenu } from ".";
 import { Button } from "../button";
@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof DropdownMenu> = (args) => (
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
         <DropdownMenuItem>
-          <UserIcon className="mr-2 h-4 w-4" />
+          <User className="mr-2 h-4 w-4" />
           <span>Profile</span>
           <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
         </DropdownMenuItem>

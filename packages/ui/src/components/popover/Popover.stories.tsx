@@ -1,5 +1,5 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { type ComponentMeta, type ComponentStory } from "@storybook/react";
+import type { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Heart } from "lucide-react";
 
 import { Popover } from ".";
 import { Button } from "../button";
@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Popover> = (args) => (
   <Popover>
     <PopoverTrigger asChild>
       <Button className="w-12 rounded-full p-0">
-        <HeartIcon className="h-4 w-4" />
+        <Heart className="h-4 w-4" />
         <span className="sr-only">Open popover</span>
       </Button>
     </PopoverTrigger>

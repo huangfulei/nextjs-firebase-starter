@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import * as SelectPrimitive from "@radix-ui/react-select";
+import { Check } from "lucide-react";
 
 import { cn } from "~/index";
 
@@ -84,7 +84,7 @@ const SelectItem = React.forwardRef<
   >
     <span className="flex h-3.5 w-3.5 items-center justify-center pr-2">
       <SelectPrimitive.ItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <Check className="h-4 w-4" />
       </SelectPrimitive.ItemIndicator>
     </span>
 
