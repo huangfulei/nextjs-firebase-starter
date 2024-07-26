@@ -1,5 +1,8 @@
-export { auth as middleware } from "@acme/auth";
+import type { NextRequest } from "next/server";
 
+export default function middleware(request: NextRequest) {
+  // const { geo, headers } = request;
+}
 // Or like this if you need to do something here.
 // export default auth((req) => {
 //   console.log(req.auth) //  { session: { user: { ... } } }

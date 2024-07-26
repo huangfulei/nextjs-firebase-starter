@@ -3,10 +3,9 @@
  * for Tailwind Intellisense & Autocompletion in the source files
  */
 import type { Config } from "tailwindcss";
-
-import baseConfig from "@acme/tailwind-config/web";
+import base from "@pomotrack/tailwind-config/base";
 
 export default {
   content: ["./src/**/*.tsx"],
-  presets: [baseConfig],
+  presets: [base],
 } satisfies Config;

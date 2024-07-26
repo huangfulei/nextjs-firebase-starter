@@ -1,12 +1,11 @@
 {
-  "name": "@acme/tailwind-config",
+  "name": "@pomotrack/tailwind-config",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "exports": {
-    "./native": "./native.ts",
-    "./web": "./web.ts"
-  },
+  "files": [
+    "base.ts"
+  ],
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
@@ -15,17 +14,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "catalog:",
+    "tailwindcss-animate": "catalog:",
+    "daisyui": "^4.12.10"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@pomotrack/eslint-config": "workspace:*",
+    "@pomotrack/prettier-config": "workspace:*",
+    "@pomotrack/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@pomotrack/prettier-config"
 }
