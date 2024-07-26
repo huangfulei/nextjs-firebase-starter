@@ -18,12 +18,11 @@
     "@pomotrack/validators": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "catalog:",
-    "geist": "^1.3.0",
     "next": "^14.2.4",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
-    "superjson": "2.2.1",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "lucide-react": "catalog:"
   },
   "devDependencies": {
     "@pomotrack/eslint-config": "workspace:*",

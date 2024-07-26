@@ -1,7 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { cn } from "@pomotrack/ui";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 
 import "~/app/globals.css";
 
@@ -38,13 +35,7 @@ export const viewport: Viewport = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans text-foreground antialiased",
-          GeistSans.variable,
-          GeistMono.variable,
-        )}
-      >
+      <body>
         {props.children}
         <div className="absolute bottom-4 right-4"></div>
       </body>

@@ -1,4 +1,4 @@
-import { Button } from "@pomotrack/ui/components/button/Button";
+import { Button } from "@pomotrack/ui/src/components/button";
 
 export const runtime = "edge";
 

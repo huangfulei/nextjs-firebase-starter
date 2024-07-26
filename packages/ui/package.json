@@ -3,16 +3,8 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "types": "./dist/src/*.d.ts",
-      "default": "./src/*.tsx"
-    }
-  },
+  "main": "./index.tsx",
+  "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
@@ -58,7 +50,8 @@
     "react-hook-form": "^7.52.1",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "catalog:"
+    "tailwindcss-animate": "catalog:",
+    "lucide-react": "catalog:"
   },
   "devDependencies": {
     "@pomotrack/eslint-config": "workspace:*",
