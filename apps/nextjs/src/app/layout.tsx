@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 
 import "~/app/globals.css";
 
@@ -8,29 +8,22 @@ import { env } from "~/env";
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
-      ? "https://turbo.t3.gg"
+      ? "https://www.pomotrack.com"
       : "http://localhost:3000",
   ),
-  title: "Create T3 Turbo",
-  description: "Simple monorepo with shared backend for web & mobile apps",
+  title: "Pomotrack",
+  description: "pomodoro timer with matrix",
   openGraph: {
-    title: "Create T3 Turbo",
-    description: "Simple monorepo with shared backend for web & mobile apps",
-    url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
+    title: "Pomotrack",
+    description: "pomodoro timer with matrix",
+    url: "https://www.pomotrack.com",
+    siteName: "Pomotrack",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@jullerino",
-    creator: "@jullerino",
+    site: "@pomotrack",
+    creator: "@pomotrack",
   },
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -39,7 +32,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <ThemeSelector />
         {props.children}
-        <div className="absolute bottom-4 right-4"></div>
       </body>
     </html>
   );
