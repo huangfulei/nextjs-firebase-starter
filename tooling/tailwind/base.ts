@@ -12,8 +12,7 @@ export default {
   plugins: [daisyui, typography, tailwindcssAnimate],
   daisyui: {
     styled: true,
-    // themes: ["light", "dark"],
-    themes: false,
+    themes: ["light", "dark", "cupcake", "luxury"],
     base: true,
     utils: true,
     logs: true,

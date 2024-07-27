@@ -1,6 +1,6 @@
 import { Button } from "@pomotrack/ui/src/components/button";
 
-import { TextComponent } from "~/app/_components/TextComponent";
+import { TextComponent } from "~/components/TextComponent";
 
 export default function HomePage() {
   // You can await this here if you don't want to show Suspense fallback below
@@ -11,6 +11,7 @@ export default function HomePage() {
       <Button variant={"neutral"}>
         <TextComponent />
       </Button>
+      <TextComponent />
     </main>
   );
 }

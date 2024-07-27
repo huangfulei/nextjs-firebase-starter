@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import "~/app/globals.css";
 
+import { ThemeSelector } from "~/components/ThemeSelector";
 import { env } from "~/env";
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <ThemeSelector />
         {props.children}
         <div className="absolute bottom-4 right-4"></div>
       </body>

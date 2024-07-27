@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+
 import base from "@pomotrack/tailwind-config/base";
 
 export default {

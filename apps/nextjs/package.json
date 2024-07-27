@@ -19,6 +19,8 @@
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "catalog:",
     "next": "^14.2.4",
+    "zustand": "^4.5.4",
+    "firebase": "^10.12.4",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "zod": "catalog:",
