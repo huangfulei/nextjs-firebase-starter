@@ -6,6 +6,7 @@ import { logEvent } from "firebase/analytics";
 
 import {
   cn,
+  Grid,
   HStack,
   NavigationMenu,
   NavigationMenuContent,
@@ -18,6 +19,8 @@ import {
   VStack,
 } from "@pomotrack/ui";
 
+import { MyAccount } from "~/app/[locale]/_components/MyAccount";
+import { ThemeSelector } from "~/app/[locale]/_components/ThemeSelector";
 import { navItems } from "~/constants/APP";
 import { NAVIGATE_TO_PAGE } from "~/constants/TELEMETRY";
 import { analytics } from "~/firebase";
@@ -30,30 +33,30 @@ export const DesktopNav = () => {
   // const t = useTranslations("navigation");
   return (
     <VStack className={"hidden w-full sm:flex"}>
-      {/*<Grid className={"mt-1 grid-cols-3"}>*/}
-      {/*  <Link*/}
-      {/*    href={"/"}*/}
-      {/*    className={*/}
-      {/*      "w-fit place-content-start font-serif text-5xl font-extrabold opacity-80"*/}
-      {/*    }*/}
-      {/*    onClick={() => {*/}
-      {/*      logEvent(analytics, NAVIGATE_TO_PAGE, {*/}
-      {/*        path: "/",*/}
-      {/*      });*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    TUTULY*/}
-      {/*  </Link>*/}
-      {/*  /!*<Box className={"place-content-center"}>*!/*/}
-      {/*  /!*  <SearchBar />*!/*/}
-      {/*  /!*</Box>Box*!/*/}
-      {/*  <HStack className={"place-content-end items-center"}>*/}
-      {/*    /!*<MyAccount />*!/*/}
-      {/*    <ShoppingCart />*/}
-      {/*    /!*<ThemeSelector />*!/*/}
-      {/*    /!*<LanguageSelector />*!/*/}
-      {/*  </HStack>*/}
-      {/*</Grid>*/}
+      <Grid className={"mt-1 grid-cols-3"}>
+        <Link
+          href={"/"}
+          className={
+            "w-fit place-content-start font-serif text-5xl font-extrabold opacity-80"
+          }
+          onClick={() => {
+            logEvent(analytics, NAVIGATE_TO_PAGE, {
+              path: "/",
+            });
+          }}
+        >
+          Pomotrack
+        </Link>
+        {/*<Box className={"place-content-center"}>*/}
+        {/*  <SearchBar />*/}
+        {/*</Box>Box*/}
+        <HStack className={"place-content-end items-center"}>
+          <MyAccount />
+          {/*<ShoppingCart />*/}
+          <ThemeSelector />
+          {/*<LanguageSelector />*/}
+        </HStack>
+      </Grid>
       <HStack className={"mt-2 items-center justify-between"}>
         {/*this can be replaced with avatar*/}
         {/*<Logo title={'Tooling'} />*/}

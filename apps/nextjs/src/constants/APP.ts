@@ -1,4 +1,8 @@
-import { INavItem } from "~/interfaces/navItem";
+import type { INavItem } from "~/interfaces/navItem";
+
+export const MenuBarHeight = "h-[64px]";
+export const MenuBarHeightMobile = "h-[56px]";
+export const locales = ["en"];
 
 export const navItems: INavItem[] = [
   { name: "home", href: "/" },

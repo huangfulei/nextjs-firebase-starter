@@ -3,13 +3,15 @@ import type { Tokens } from "next-firebase-auth-edge";
 import { getTokens } from "next-firebase-auth-edge";
 import { filterStandardClaims } from "next-firebase-auth-edge/lib/auth/claims";
 
-import "~/app/globals.css";
+import "~/globals.css";
 
 import { cookies } from "next/headers";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 import type { User } from "~/context/useAuthStore";
-import { ThemeSelector } from "~/components/ThemeSelector";
-import { NavMenuContainer } from "~/containers/NavMenuContainer";
+import { NavMenu } from "~/app/[locale]/_components/navMenu/NavMenu";
+import { ThemeSelector } from "~/app/[locale]/_components/ThemeSelector";
 import { env } from "~/env";
 
 export const metadata: Metadata = {
@@ -58,7 +60,13 @@ const toUser = ({ decodedToken }: Tokens): User => {
   };
 };
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   const tokens = await getTokens(cookies(), {
     apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
     cookieName: env.AUTH_COOKIE_NAME,
@@ -73,14 +81,14 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     },
   });
   const user = tokens ? toUser(tokens) : null;
-
-  console.log("current user: ", user);
+  const messages = await getMessages();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning data-theme="light">
       <body>
-        <NavMenuContainer />
-        <ThemeSelector />
-        {props.children}
+        <NextIntlClientProvider messages={messages}>
+          <NavMenu />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
