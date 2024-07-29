@@ -1,7 +1,6 @@
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 import * as React from "react";
 
-import { cn } from "~/index";
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from ".";
+import { cn } from "../../index";
 import { Button } from "../button";
 import { Switch } from "../switch";
 

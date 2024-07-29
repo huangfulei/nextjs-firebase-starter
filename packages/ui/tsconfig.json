@@ -5,10 +5,7 @@
     "jsx": "preserve",
     "rootDir": ".",
     "emitDeclarationOnly": true,
-    "paths": {
-      "~/*": ["./src/*"]
-    }
   },
-  "include": ["*.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["*.ts", "src"],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import type { ILoadingProps } from ".";
-import { cn } from "~/index";
+import { cn } from "../../index";
 
 /**
  * Loading component.

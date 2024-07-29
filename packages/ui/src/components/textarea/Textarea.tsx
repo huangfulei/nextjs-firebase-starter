@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "~/index";
+import { cn } from "../../index";
 
 export type ITextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 

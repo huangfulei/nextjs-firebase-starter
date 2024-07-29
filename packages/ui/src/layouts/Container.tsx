@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "~/index";
+import { cn } from "../../index";
 
 const styles = {
   xs: "mx-auto px-2 sm:px-6 md:max-w-2xl md:px-4 lg:px-2",

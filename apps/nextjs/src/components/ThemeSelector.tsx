@@ -2,35 +2,16 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import { logEvent } from "firebase/analytics";
-import { User } from "lucide-react";
 
-import { cn } from "@pomotrack/ui/src";
-import { Swap } from "@pomotrack/ui/src/components/swap";
-import { HStack } from "@pomotrack/ui/src/layouts";
-
-import { Button } from "~/components/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "~/components/dropdownMenu";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/select";
+  ß,
+} from "@pomotrack/ui";
+
 import { CHANGE_THEME } from "~/constants/TELEMETRY";
 import { useThemeStore } from "~/context/useThemeStore";
 

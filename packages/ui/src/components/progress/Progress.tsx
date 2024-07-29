@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { cn } from "~/index";
+import { cn } from "../../index";
 
 export type IProgressProps = React.ProgressHTMLAttributes<HTMLProgressElement>;
 

@@ -9,7 +9,7 @@ import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 
-import { cn } from "~/index";
+import { cn } from "../../index";
 import { Button } from "../button";
 
 interface CarouselProps {

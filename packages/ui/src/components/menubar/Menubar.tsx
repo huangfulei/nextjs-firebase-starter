@@ -4,7 +4,7 @@ import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { Check, ChevronRight, X } from "lucide-react";
 
-import { cn } from "~/index";
+import { cn } from "../../index";
 
 const MenubarMenu = MenubarPrimitive.Menu;
 

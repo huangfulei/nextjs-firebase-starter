@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-properties */
-import * as process from "node:process";
 import { createEnv } from "@t3-oss/env-nextjs";
 import { vercel } from "@t3-oss/env-nextjs/presets";
 import { z } from "zod";
@@ -17,6 +16,11 @@ export const env = createEnv({
    */
   server: {
     VERCEL_ENV: z.string(),
+    AUTH_COOKIE_NAME: z.string(),
+    AUTH_COOKIE_SIGNATURE_KEY_CURRENT: z.string(),
+    AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS: z.string(),
+    FIREBASE_ADMIN_PRIVATE_KEY: z.string(),
+    FIREBASE_ADMIN_CLIENT_EMAIL: z.string(),
   },
 
   /**
