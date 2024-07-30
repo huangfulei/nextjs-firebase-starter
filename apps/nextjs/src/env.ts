@@ -21,6 +21,9 @@ export const env = createEnv({
     AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS: z.string(),
     FIREBASE_ADMIN_PRIVATE_KEY: z.string(),
     FIREBASE_ADMIN_CLIENT_EMAIL: z.string(),
+    USE_SECURE_COOKIES: z.string(),
+    FIREBASE_API_KEY: z.string(),
+    FIREBASE_PROJECT_ID: z.string(),
   },
 
   /**

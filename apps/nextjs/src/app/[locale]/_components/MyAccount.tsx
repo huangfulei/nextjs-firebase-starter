@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { logEvent } from "firebase/analytics";
+import { onAuthStateChanged } from "firebase/auth";
 import { Heart, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -24,7 +26,22 @@ export const MyAccount = () => {
   const toastT = useTranslations("toast");
   const generalT = useTranslations("general");
   const usersT = useTranslations("users");
-  const { user, toggleAuthDialog } = useAuthStore();
+  const { user, setUser, toggleAuthDialog } = useAuthStore();
+
+  useEffect(() => {
+    void onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // get user from db
+        // const customer = await getUserById(user.uid);
+        // if (customer.address?.country) {
+        //   void setCountryCode(customer.address?.country);
+        // }
+        setUser(user);
+      } else {
+        setUser(undefined);
+      }
+    });
+  }, []);
 
   const onSignOut = async () => {
     await auth.signOut();
@@ -51,10 +68,7 @@ export const MyAccount = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="z-50 w-40">
             <Link href={"/user/profile"}>
-              <DropdownMenuItem>
-                {/*<Identification className="mr-2 h-4 w-4" />*/}
-                {usersT("profile")}
-              </DropdownMenuItem>
+              <DropdownMenuItem>{usersT("profile")}</DropdownMenuItem>
             </Link>
             <Link href={"/user/wishlist"}>
               <DropdownMenuItem>
@@ -62,23 +76,7 @@ export const MyAccount = () => {
                 {usersT("wishlist")}
               </DropdownMenuItem>
             </Link>
-            {/*<Link href={"/user/orders"}>*/}
-            {/*  <DropdownMenuItem>*/}
-            {/*    <ClipboardDocumentList className="mr-2 h-4 w-4" />*/}
-            {/*    {usersT("order_history")}*/}
-            {/*  </DropdownMenuItem>*/}
-            {/*</Link>*/}
-            {/*<Link href={`/affiliate/${user.uid}`}>*/}
-            {/*  <DropdownMenuItem>*/}
-            {/*    <CurrencyDollarIcon className="mr-2 h-4 w-4" />*/}
-            {/*    {usersT("affiliate")}*/}
-            {/*  </DropdownMenuItem>*/}
-            {/*</Link>*/}
-            <DropdownMenuItem onClick={onSignOut}>
-              {/*<ArrowLeftOnRectangle className="mr-2 h-4 w-4" />*/}
-              {/*{usersT("sign_out")}*/}
-              sign out
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={onSignOut}>sign out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
@@ -87,7 +85,6 @@ export const MyAccount = () => {
           onClick={() => toggleAuthDialog(true)}
           className={"px-1 sm:px-2"}
         >
-          {/*{usersT("sign_in")}*/}
           sign in
         </Button>
       )}

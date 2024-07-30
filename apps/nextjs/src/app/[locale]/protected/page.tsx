@@ -2,12 +2,11 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { getTokens } from "next-firebase-auth-edge";
 
-import { Button } from "@pomotrack/ui/src/components/button";
+import { Text } from "@pomotrack/ui";
 
-import { TextComponent } from "~/components/TextComponent";
 import { env } from "~/env";
 
-export default async function HomePage() {
+const Protected = async () => {
   const tokens = await getTokens(cookies(), {
     apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
     cookieName: env.AUTH_COOKIE_NAME,
@@ -23,17 +22,11 @@ export default async function HomePage() {
   });
 
   if (!tokens) {
-    // notFound();
+    notFound();
   } else {
     console.log("token:", tokens);
   }
+  return <Text>only signed in user can see it</Text>;
+};
 
-  return (
-    <main className="container h-screen py-16">
-      <Button variant={"neutral"}>
-        <TextComponent />
-      </Button>
-      <TextComponent />
-    </main>
-  );
-}
+export default Protected;

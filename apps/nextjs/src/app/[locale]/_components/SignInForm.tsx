@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { logEvent } from "firebase/analytics";
 import {
@@ -54,6 +55,7 @@ export const SignInForm = (props: SignInFormProps) => {
   const usersT = useTranslations("users");
   const [isLoading, setIsLoading] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
+  const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -73,10 +75,18 @@ export const SignInForm = (props: SignInFormProps) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     await signInWithEmailAndPassword(auth, values.email, values.password)
-      .then(() => {
+      .then(async (credential) => {
         logEvent(analytics, SIGN_IN_WITH_EMAIL);
         toggle(false);
         reset();
+        const idToken = await credential.user.getIdToken();
+
+        console.log("id token: ", idToken);
+        await fetch("/api/login", {
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          },
+        });
         // Signed in
         toast({
           title: toastT("success.title"),
@@ -106,6 +116,7 @@ export const SignInForm = (props: SignInFormProps) => {
       })
       .finally(() => {
         setIsLoading(false);
+        router.refresh();
       });
   };
 

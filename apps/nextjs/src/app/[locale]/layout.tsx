@@ -6,6 +6,7 @@ import { filterStandardClaims } from "next-firebase-auth-edge/lib/auth/claims";
 import "~/globals.css";
 
 import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -67,20 +68,21 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const tokens = await getTokens(cookies(), {
-    apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    cookieName: env.AUTH_COOKIE_NAME,
-    cookieSignatureKeys: [
-      env.AUTH_COOKIE_SIGNATURE_KEY_CURRENT,
-      env.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS,
-    ],
-    serviceAccount: {
-      projectId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
-      clientEmail: env.FIREBASE_ADMIN_CLIENT_EMAIL,
-      privateKey: env.FIREBASE_ADMIN_PRIVATE_KEY,
-    },
-  });
-  const user = tokens ? toUser(tokens) : null;
+  // const tokens = await getTokens(cookies(), {
+  //   apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  //   cookieName: env.AUTH_COOKIE_NAME,
+  //   cookieSignatureKeys: [
+  //     env.AUTH_COOKIE_SIGNATURE_KEY_CURRENT,
+  //     env.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS,
+  //   ],
+  //   serviceAccount: {
+  //     projectId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  //     clientEmail: env.FIREBASE_ADMIN_CLIENT_EMAIL,
+  //     privateKey: env.FIREBASE_ADMIN_PRIVATE_KEY,
+  //   },
+  // });
+  // const user = tokens ? toUser(tokens) : null;
+
   const messages = await getMessages();
   return (
     <html lang={locale} suppressHydrationWarning data-theme="light">
