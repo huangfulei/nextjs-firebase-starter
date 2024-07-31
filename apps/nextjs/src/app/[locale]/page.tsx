@@ -7,6 +7,10 @@ import { authConfig } from "~/firebase/server-config";
 import { toUser } from "~/firebase/user";
 import { Link } from "~/navigation";
 
+export async function generateStaticParams() {
+  return [{}];
+}
+
 export default async function HomePage() {
   const tokens = await getTokens(cookies(), {
     ...authConfig,

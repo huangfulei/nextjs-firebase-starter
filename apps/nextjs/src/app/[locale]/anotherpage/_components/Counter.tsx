@@ -1,7 +1,5 @@
 "use client";
 
-import { useTransition } from "react";
-import { useRouter } from "next/navigation";
 import {
   doc,
   getDoc,
@@ -10,12 +8,13 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-import { Button, Container, Section } from "@pomotrack/ui";
+import { Button, Container, HStack, Section, VStack } from "@pomotrack/ui";
 
-import { incrementCounter } from "~/app/[locale]/actions/user-counters";
+import { incrementCounter } from "~/app/[locale]/anotherpage/actions/incrementCounter";
 import { useAuth } from "~/context/AuthContext";
 import { getFirebaseApp } from "~/firebase/client";
 import { useLoadingCallback } from "~/hooks/useLoadingCallback";
+import { useRouter } from "~/navigation";
 
 interface CounterProps {
   count: number;
@@ -47,7 +46,11 @@ export const Counter = (props: CounterProps) => {
     },
   );
 
-  const [isIncrementCounterServerLoading, startTransition] = useTransition();
+  const [callServer, isIncrementCounterServerLoading] = useLoadingCallback(
+    async () => {
+      await incrementCounter();
+    },
+  );
 
   const [callApi, isIncrementCounterApiLoading] = useLoadingCallback(
     async () => {
@@ -61,21 +64,26 @@ export const Counter = (props: CounterProps) => {
   );
 
   return (
-    <Container>
+    <Container className={"text-center"}>
       <h3>Counter: {count}</h3>
       <Section>
-        <Button onClick={callClient} disabled={isIncrementCounterClientLoading}>
-          Increase counter using client action
-        </Button>
-        <Button
-          onClick={() => startTransition(() => incrementCounter())}
-          disabled={isIncrementCounterServerLoading}
-        >
-          Increase counter using server action
-        </Button>
-        <Button onClick={callApi} disabled={isIncrementCounterApiLoading}>
-          Increase counter using api route
-        </Button>
+        <VStack className={"gap-2"}>
+          <Button
+            onClick={callClient}
+            disabled={isIncrementCounterClientLoading}
+          >
+            Increase counter using client action
+          </Button>
+          <Button
+            onClick={callServer}
+            disabled={isIncrementCounterServerLoading}
+          >
+            Increase counter using server action
+          </Button>
+          <Button onClick={callApi} disabled={isIncrementCounterApiLoading}>
+            Increase counter using api route
+          </Button>
+        </VStack>
       </Section>
     </Container>
   );

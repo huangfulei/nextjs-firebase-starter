@@ -50,6 +50,7 @@ export const MyAccount = () => {
       duration: 5000,
       variant: "success",
     });
+    router.push("/");
     router.refresh();
   };
 

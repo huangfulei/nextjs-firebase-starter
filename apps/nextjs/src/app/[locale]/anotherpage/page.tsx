@@ -1,11 +1,7 @@
 import { cookies } from "next/headers";
 import { getTokens } from "next-firebase-auth-edge";
 
-import { Button } from "@pomotrack/ui/src/components/button";
-
-import { Counter } from "~/app/[locale]/_components/Counter";
-import { useAuth } from "~/context/AuthContext";
-import { env } from "~/env";
+import { Counter } from "~/app/[locale]/anotherpage/_components/Counter";
 import { db } from "~/firebase/server";
 import { authConfig } from "~/firebase/server-config";
 

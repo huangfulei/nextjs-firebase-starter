@@ -7,12 +7,9 @@ import { authConfig } from "~/firebase/server-config";
 
 export async function POST(request: NextRequest) {
   const tokens = await getTokens(request.cookies, authConfig);
-  console.log(tokens);
   if (!tokens) {
     throw new Error("Cannot update counter of unauthenticated user");
   }
-
-  console.log(tokens.decodedToken.uid);
 
   const db = getFirestore(getFirebaseAdminApp());
   const snapshot = await db
