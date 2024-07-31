@@ -36,24 +36,24 @@ import {
   SIGN_UP_WITH_FACEBOOK,
   SIGN_UP_WITH_GOOGLE,
 } from "~/constants/TELEMETRY";
-import { useAuthStore } from "~/context/useAuthStore";
-import { analytics, auth, db } from "~/firebase";
+import { useAuthDialogStore } from "~/context/useAuthDialogStore";
+import { analytics, db, getFirebaseAuth } from "~/firebase/client";
 
 export const SignInDialog = () => {
   const toastT = useTranslations("toast");
   const generalT = useTranslations("general");
   const usersT = useTranslations("users");
   const locale = useLocale();
-  const { isAuthDialogOpen, toggleAuthDialog } = useAuthStore();
+  const { isAuthDialogOpen, toggleAuthDialog } = useAuthDialogStore();
 
   const handleSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    await handleSignInWithPopup(auth, provider, "google");
+    await handleSignInWithPopup(getFirebaseAuth(), provider, "google");
   };
 
   const handleSignInWithFacebook = async () => {
     const provider = new FacebookAuthProvider();
-    await handleSignInWithPopup(auth, provider, "facebook");
+    await handleSignInWithPopup(getFirebaseAuth(), provider, "facebook");
   };
 
   const handleSignInWithPopup = async (

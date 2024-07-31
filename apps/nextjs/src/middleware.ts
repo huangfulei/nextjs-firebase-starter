@@ -4,7 +4,7 @@ import { authMiddleware } from "next-firebase-auth-edge";
 import createIntlMiddleware from "next-intl/middleware";
 
 import { locales } from "~/constants/APP";
-import { authConfig } from "./config/server-config";
+import { authConfig } from "~/firebase/server-config";
 
 export async function middleware(request: NextRequest) {
   const { geo, headers } = request;
@@ -56,9 +56,10 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/",
+    "/((?!_next|favicon.ico|__/auth|__/firebase|api|.*\\.).*)",
     "/api/login",
     "/api/logout",
-    "/",
-    "/((?!_next|favicon.ico|api|.*\\.).*)",
+    "/api/refresh-token",
   ],
 };

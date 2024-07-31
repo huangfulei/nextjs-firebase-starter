@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { logEvent } from "firebase/analytics";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -30,7 +31,7 @@ import {
   SIGN_UP_WITH_EMAIL,
   SIGN_UP_WITH_EMAIL_FAILED,
 } from "~/constants/TELEMETRY";
-import { analytics, auth } from "~/firebase";
+import { analytics, getFirebaseAuth } from "~/firebase/client";
 
 // define form schema
 export const formSchema = z
@@ -61,6 +62,7 @@ export const SignUpForm = (props: SignUpFormProps) => {
   const validationT = useTranslations("validation");
   const usersT = useTranslations("users");
   const locale = useLocale();
+  const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -84,13 +86,20 @@ export const SignUpForm = (props: SignUpFormProps) => {
     try {
       logEvent(analytics, SIGN_UP_WITH_EMAIL);
 
-      const response = await createUserWithEmailAndPassword(
-        auth,
+      const credential = await createUserWithEmailAndPassword(
+        getFirebaseAuth(),
         data.email,
         data.password,
       );
 
       // await createUser(response.user.uid, data.email, data.email, locale);
+      const idToken = await credential.user.getIdToken();
+
+      await fetch("/api/login", {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      });
 
       toast({
         title: toastT("success.title"),
@@ -117,6 +126,7 @@ export const SignUpForm = (props: SignUpFormProps) => {
         variant: "error",
       });
     } finally {
+      router.refresh();
       setIsLoading(false);
       toggle(false);
       reset();

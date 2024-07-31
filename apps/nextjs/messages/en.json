@@ -1,5 +1,98 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "general": {
+    "shop_now": "Shop Now!",
+    "variants": "Variants:",
+    "stock": "Stock",
+    "in_stock": "In Stock",
+    "out_of_stock": "Out of Stock",
+    "add_to_cart": "Add to Cart",
+    "only": "Only",
+    "left": "left",
+    "from": "From",
+    "name": "Name",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "message": "Message",
+    "submit": "Submit",
+    "close": "Close",
+    "clear": "Clear",
+    "create": "Create",
+    "confirm": "Confirm",
+    "remove": "Remove",
+    "price": "Price",
+    "quantity": "Quantity",
+    "male": "Male",
+    "female": "Female",
+    "view_all": "View All",
+    "may_like": "You may also like",
+    "share": "Share to: ",
+    "natural_skincare": "Natural Skincare",
+    "beauty": "Beauty",
+    "zero_additive": "Zero Additive",
+    "jewellery": "Jewellery",
+    "pearl": "Pearl",
+    "back": "Back",
+    "header_info": "Free delivery worldwide from {symbol}{amount}, delivery within 7-15 business days.",
+    "scroll_to_top": "Scroll to Top",
+    "loading": "Loading...",
+    "the_end": "The End",
+    "compare": "Compare"
+  },
+  "users": {
+    "new_user": "New User?",
+    "have_account": "Have an Account?",
+    "forgot_pass": "Forgot Password?",
+    "or_login": "or log in with",
+    "reset_pass_message": "Password reset email has been sent to {email}",
+    "sign_in": "Sign In",
+    "sign_up": "Register",
+    "sign_out": "Sign Out",
+    "profile": "Profile",
+    "order_history": "Order History",
+    "affiliate": "Affiliate Program",
+    "wishlist": "Wishlist"
+  },
+  "toast": {
+    "success": {
+      "title": "Success",
+      "contact_message": "Thank you for contacting us. We will get back to you as soon as possible.",
+      "newsletter_message": "Thank you for subscribing to our newsletter!",
+      "log_out": "Logged Out!",
+      "sign_up": "Sign up successful!",
+      "signed_in": "Signed In!",
+      "reset_pass_message": "Password reset email has been sent to {email}",
+      "update_profile": "Your profile is updated!",
+      "update_address": "Your delivery address is updated!",
+      "payment": "Payment succeeded!",
+      "review": "Thanks for your feedback!",
+      "copy": "Copied to clipboard!",
+      "affiliate_creation": "You have created your affiliate ID!",
+      "payout_method_update": "Your payout method is updated!",
+      "withdrawal": "Your withdrawal request is submitted!"
+    },
+    "error": {
+      "title": "Error",
+      "message": "Something went wrong. Please try again later",
+      "payment": "Your payment was not successful, please try again.",
+      "image_oversize": "Image is too large to be uploaded",
+      "image_number_limit": "You can upload maximum 4 images",
+      "affiliate_unique": "This ID is already taken.",
+      "payout_method": "Please input a valid payout method"
+    },
+    "info": {
+      "title": "Information",
+      "email_required": "Please enter email!",
+      "select_size": "Please select size!",
+      "payment": "Your payment is processing."
+    }
+  },
+  "not_found": {
+    "title": "Uh oh! Nothing found!",
+    "subtitle": "Please check back later!",
+    "order_history": "No order history yet.",
+    "search_result": "Try other search terms?"
   }
 }

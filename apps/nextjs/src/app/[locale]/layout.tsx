@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import type { Tokens } from "next-firebase-auth-edge";
-import { getTokens } from "next-firebase-auth-edge";
-import { filterStandardClaims } from "next-firebase-auth-edge/lib/auth/claims";
 
 import "~/globals.css";
 
-import { cookies } from "next/headers";
-import { notFound } from "next/navigation";
+import { cookies, headers } from "next/headers";
+import { getTokens } from "next-firebase-auth-edge";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import type { User } from "~/context/useAuthStore";
 import { NavMenu } from "~/app/[locale]/_components/navMenu/NavMenu";
-import { ThemeSelector } from "~/app/[locale]/_components/ThemeSelector";
+import { AuthProvider } from "~/context/AuthProvider";
 import { env } from "~/env";
+import { authConfig } from "~/firebase/server-config";
+import { toUser } from "~/firebase/user";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -36,31 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const toUser = ({ decodedToken }: Tokens): User => {
-  const {
-    uid,
-    email,
-    picture: photoURL,
-    email_verified: emailVerified,
-    phone_number: phoneNumber,
-    name: displayName,
-    source_sign_in_provider: signInProvider,
-  } = decodedToken;
-
-  const customClaims = filterStandardClaims(decodedToken);
-
-  return {
-    uid,
-    email: email ?? null,
-    displayName: displayName ?? null,
-    photoURL: photoURL ?? null,
-    phoneNumber: phoneNumber ?? null,
-    emailVerified: emailVerified ?? false,
-    providerId: signInProvider,
-    customClaims,
-  };
-};
-
 export default async function RootLayout({
   children,
   params: { locale },
@@ -68,28 +41,21 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // const tokens = await getTokens(cookies(), {
-  //   apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  //   cookieName: env.AUTH_COOKIE_NAME,
-  //   cookieSignatureKeys: [
-  //     env.AUTH_COOKIE_SIGNATURE_KEY_CURRENT,
-  //     env.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS,
-  //   ],
-  //   serviceAccount: {
-  //     projectId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  //     clientEmail: env.FIREBASE_ADMIN_CLIENT_EMAIL,
-  //     privateKey: env.FIREBASE_ADMIN_PRIVATE_KEY,
-  //   },
-  // });
-  // const user = tokens ? toUser(tokens) : null;
-
   const messages = await getMessages();
+  const tokens = await getTokens(cookies(), {
+    ...authConfig,
+    headers: headers(),
+  });
+  const user = tokens ? toUser(tokens) : null;
+
   return (
     <html lang={locale} suppressHydrationWarning data-theme="light">
       <body>
         <NextIntlClientProvider messages={messages}>
-          <NavMenu />
-          {children}
+          <AuthProvider user={user}>
+            <NavMenu />
+            {children}
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

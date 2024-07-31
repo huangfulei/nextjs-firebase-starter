@@ -6,6 +6,5 @@ export const clientConfig = {
   databaseURL: env.NEXT_PUBLIC_FIREBASE_DATA_BASE_URL,
   projectId: env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
   messagingSenderId: env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  // Optional – required if your app uses AppCheck – https://firebase.google.com/docs/app-check
   appId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };

@@ -2,7 +2,6 @@
   "name": "@pomotrack/nextjs",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
@@ -23,6 +22,7 @@
     "next-intl": "^3.17.2",
     "zustand": "^4.5.4",
     "firebase": "^10.12.4",
+    "firebase-admin":"^11.10.1",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "zod": "catalog:",

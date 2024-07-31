@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { cn } from "@pomotrack/ui/src";
-import { Button } from "@pomotrack/ui/src/components/button";
 import { Container } from "@pomotrack/ui/src/layouts";
 
 import { DesktopNav } from "~/app/[locale]/_components/navMenu/DesktopNav";

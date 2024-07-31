@@ -35,7 +35,7 @@ import {
   SIGN_IN_WITH_EMAIL,
   SIGN_IN_WITH_EMAIL_FAILED,
 } from "~/constants/TELEMETRY";
-import { analytics, auth } from "~/firebase";
+import { analytics, getFirebaseAuth } from "~/firebase/client";
 
 // define form schema
 export const formSchema = z.object({
@@ -74,14 +74,17 @@ export const SignInForm = (props: SignInFormProps) => {
   } = form;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-    await signInWithEmailAndPassword(auth, values.email, values.password)
+    await signInWithEmailAndPassword(
+      getFirebaseAuth(),
+      values.email,
+      values.password,
+    )
       .then(async (credential) => {
         logEvent(analytics, SIGN_IN_WITH_EMAIL);
         toggle(false);
         reset();
         const idToken = await credential.user.getIdToken();
 
-        console.log("id token: ", idToken);
         await fetch("/api/login", {
           headers: {
             Authorization: `Bearer ${idToken}`,
@@ -123,7 +126,7 @@ export const SignInForm = (props: SignInFormProps) => {
   const resetPassword = async (email: string) => {
     logEvent(analytics, RESET_PASSWORD);
     if (email) {
-      await sendPasswordResetEmail(auth, email)
+      await sendPasswordResetEmail(getFirebaseAuth(), email)
         .then(() => {
           toast({
             title: toastT("success.title"),

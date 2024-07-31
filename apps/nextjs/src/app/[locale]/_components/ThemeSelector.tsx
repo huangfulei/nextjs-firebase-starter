@@ -9,10 +9,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-  ß,
 } from "@pomotrack/ui";
 
-import { CHANGE_THEME } from "~/constants/TELEMETRY";
 import { useThemeStore } from "~/context/useThemeStore";
 
 interface IThemeSelectorProps {

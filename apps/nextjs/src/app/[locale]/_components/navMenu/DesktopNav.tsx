@@ -23,7 +23,7 @@ import { MyAccount } from "~/app/[locale]/_components/MyAccount";
 import { ThemeSelector } from "~/app/[locale]/_components/ThemeSelector";
 import { navItems } from "~/constants/APP";
 import { NAVIGATE_TO_PAGE } from "~/constants/TELEMETRY";
-import { analytics } from "~/firebase";
+import { analytics } from "~/firebase/client";
 
 /**
  * DesktopNav component.

@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import { notFound } from "next/navigation";
 import { getTokens } from "next-firebase-auth-edge";
 
 import { Button } from "@pomotrack/ui/src/components/button";
@@ -24,6 +23,7 @@ export default async function HomePage() {
 
   if (!tokens) {
     // notFound();
+    return null;
   } else {
     console.log("token:", tokens);
   }
