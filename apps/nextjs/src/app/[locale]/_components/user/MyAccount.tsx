@@ -16,7 +16,7 @@ import {
 } from "@pomotrack/ui";
 import { toast } from "@pomotrack/ui/src/hooks/useToast";
 
-import { SignInDialog } from "~/app/[locale]/_components/SignInDialog";
+import { SignInDialog } from "~/app/[locale]/_components/user/SignInDialog";
 import { SIGN_OUT } from "~/constants/TELEMETRY";
 import { useAuth } from "~/context/AuthContext";
 import { useAuthDialogStore } from "~/context/useAuthDialogStore";

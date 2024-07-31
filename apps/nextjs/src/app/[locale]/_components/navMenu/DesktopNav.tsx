@@ -19,8 +19,8 @@ import {
   VStack,
 } from "@pomotrack/ui";
 
-import { MyAccount } from "~/app/[locale]/_components/MyAccount";
 import { ThemeSelector } from "~/app/[locale]/_components/ThemeSelector";
+import { MyAccount } from "~/app/[locale]/_components/user/MyAccount";
 import { navItems } from "~/constants/APP";
 import { NAVIGATE_TO_PAGE } from "~/constants/TELEMETRY";
 import { analytics } from "~/firebase/client";
@@ -33,7 +33,7 @@ export const DesktopNav = () => {
   // const t = useTranslations("navigation");
   return (
     <VStack className={"hidden w-full sm:flex"}>
-      <Grid className={"mt-1 grid-cols-3"}>
+      <Grid className={"mt-1 grid-cols-2"}>
         <Link
           href={"/"}
           className={

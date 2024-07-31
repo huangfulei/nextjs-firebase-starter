@@ -26,8 +26,8 @@ import {
 } from "@pomotrack/ui/src/components/tabs/Tabs";
 import { toast } from "@pomotrack/ui/src/hooks/useToast";
 
-import { SignInForm } from "~/app/[locale]/_components/SignInForm";
-import { SignUpForm } from "~/app/[locale]/_components/SignUpForm";
+import { SignInForm } from "~/app/[locale]/_components/user/SignInForm";
+import { SignUpForm } from "~/app/[locale]/_components/user/SignUpForm";
 import {
   SIGN_IN_WITH_FACEBOOK,
   SIGN_IN_WITH_FACEBOOK_FAILED,

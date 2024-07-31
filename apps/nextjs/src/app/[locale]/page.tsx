@@ -1,39 +1,31 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { getTokens } from "next-firebase-auth-edge";
 
-import { Button } from "@pomotrack/ui/src/components/button";
+import { Container, Text } from "@pomotrack/ui";
 
-import { TextComponent } from "~/components/TextComponent";
-import { env } from "~/env";
+import { authConfig } from "~/firebase/server-config";
+import { toUser } from "~/firebase/user";
+import { Link } from "~/navigation";
 
 export default async function HomePage() {
   const tokens = await getTokens(cookies(), {
-    apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    cookieName: env.AUTH_COOKIE_NAME,
-    cookieSignatureKeys: [
-      env.AUTH_COOKIE_SIGNATURE_KEY_CURRENT,
-      env.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS,
-    ],
-    serviceAccount: {
-      projectId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
-      clientEmail: env.FIREBASE_ADMIN_CLIENT_EMAIL,
-      privateKey: env.FIREBASE_ADMIN_PRIVATE_KEY,
-    },
+    ...authConfig,
+    headers: headers(),
   });
-
-  if (!tokens) {
-    // notFound();
-    return null;
-  } else {
-    console.log("token:", tokens);
-  }
-
+  const user = tokens ? toUser(tokens) : null;
   return (
-    <main className="container h-screen py-16">
-      <Button variant={"neutral"}>
-        <TextComponent />
-      </Button>
-      <TextComponent />
-    </main>
+    <Container>
+      {user ? (
+        <Text>
+          Hello {user.displayName} click{" "}
+          <Link className={"link"} href={"/anotherpage"}>
+            here
+          </Link>{" "}
+          to the next page!
+        </Text>
+      ) : (
+        <Text>Please log in!</Text>
+      )}
+    </Container>
   );
 }
